@@ -28,8 +28,6 @@ LinkList CreateList(LinkList &L)
     }
     return L;
 }
-
-
 LinkList CreateList2(LinkList &L)
 {
     //从表头到表尾正向建立单链表，每次均在表尾插入元素
@@ -49,6 +47,18 @@ LinkList CreateList2(LinkList &L)
     }
     s->next = NULL;
     return L;
+}
+
+//输出
+void Output(LinkList &L)
+{
+    LNode *p = L->next;
+    while (p != NULL)
+    {
+        printf("%d ", p->data);
+        p = p->next;
+    }
+    putchar(10);
 }
 
 LNode *GetElem(LinkList &L, int i)
@@ -76,25 +86,27 @@ LNode *LocateElem(LinkList &L, int e)
 {
     //本算法查找单链表L(带头结点)中数据域值等于e的节点指针，否则返回NULL
     LNode *p = L->next;
-    while (p && p->data != e)
+    while (p != NULL && p->data != e)
     {
         p = p->next;
     }
     return p;
 }
 
-void InsertElem(LinkList &L, int e, int i)
+void InsertNextElem(LinkList &L, int e, int i)
 {
     //后插
     LNode *p = GetElem(L, i), *s;
+    s = (LNode*)malloc(sizeof(LNode));
     s->next = p->next;
     s->data = e;
     p->next = s;
 }
-void InsertElem2(LinkList &L, int e, int i)
+void InsertPreElem2(LinkList &L, int e, int i)
 {
     //前插
     LNode *p = GetElem(L, i), *s;
+    s = (LNode*)malloc(sizeof(LNode));
     s->next = p->next;
     s->data = p->data;
     p->next = s;

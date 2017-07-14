@@ -27,13 +27,15 @@ typedef struct LNode{
 LinkList CreateList(LinkList &L);
 //尾插法
 LinkList CreateList2(LinkList &L);
+//输出
+void Output(LinkList &L);
 //按序号查找节点值
 LNode *GetElem(LinkList &L, int i);
 //按值查找表节点
 LNode *LocateElem(LinkList &L, int e);
 //插入节点操作
-void InsertElem(LinkList &L, int e, int i);//后插
-void InsertElem2(LinkList &L, int e, int i);//前插 与后插一样，不过再交换前一节点的data达到“前插”的效果
+void InsertNextElem(LinkList &L, int e, int i);//后插
+void InsertPreElem2(LinkList &L, int e, int i);//前插 与后插一样，不过再交换前一节点的data达到“前插”的效果
 //删除节点操作
 void DeleteElem(LinkList &L, int i);
 void DeleteElem(LinkList &L, LNode *s);//通过节点来删除

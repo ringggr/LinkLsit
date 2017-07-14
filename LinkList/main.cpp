@@ -7,9 +7,27 @@
 //
 
 #include <iostream>
+#include "LinkList.hpp"
+#include <iostream>
+using namespace std;
+
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    LinkList L = CreateList(L);
+    Output(L);
+//    LNode *p = GetElem(L, 5);
+//    cout << p->data << endl;
+//    p = LocateElem(L, 3);
+//    cout << p->data << endl;
+    //InsertElem(L, 34, 3);
+    
+    //Output(L);
+    //InsertElem(L, 56, 1);
+    //InsertElem(L, 22, 1);
+    InsertNextElem(L, 11, 1);
+//    Output(L);
+//    InsertElem2(L, 22, 1);
+    Output(L);
     return 0;
 }
