@@ -35,9 +35,34 @@ LNode *GetElem(LinkList &L, int i);
 LNode *LocateElem(LinkList &L, int e);
 //插入节点操作
 void InsertNextElem(LinkList &L, int e, int i);//后插
-void InsertPreElem2(LinkList &L, int e, int i);//前插 与后插一样，不过再交换前一节点的data达到“前插”的效果
+void InsertPrevElem(LinkList &L, int e, int i);//前插 与后插一样，不过再交换前一节点的data达到“前插”的效果
 //删除节点操作
 void DeleteElem(LinkList &L, int i);
 void DeleteElem(LinkList &L, LNode *s);//通过节点来删除
+int Length(LinkList &L);//长度
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+typedef struct DNode
+{
+    int data;
+    DNode *prior, *next;
+}DNode, *DLinklist;
+
+DLinklist CreateDList(DLinklist &L);
+void Output(DLinklist &L);
+DNode *GetElem(DLinklist &L, int i);
+DNode *LocateElem(DLinklist &L, int e);
+//void InsertNextElem(DLinklist &L, int e, int i);
+//void InsertPrevElem(DLinklist &L, int e, int i);
+//void DeleteElem(DLinklist &L, int i);
+
+
+
+
 
 #endif /* LinkList_hpp */

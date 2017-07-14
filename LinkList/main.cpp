@@ -14,7 +14,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    LinkList L = CreateList(L);
+    LinkList L = CreateList2(L);
     Output(L);
 //    LNode *p = GetElem(L, 5);
 //    cout << p->data << endl;
@@ -29,5 +29,8 @@ int main(int argc, const char * argv[]) {
 //    Output(L);
 //    InsertElem2(L, 22, 1);
     Output(L);
+    DeleteElem(L, 1);
+    Output(L);
+    cout << "Length: " << Length(L) << endl;
     return 0;
 }

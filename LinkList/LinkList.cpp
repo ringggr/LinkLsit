@@ -23,7 +23,6 @@ LinkList CreateList(LinkList &L)
         s->data = x;
         s->next = L->next;
         L->next = s;
-        L->data++;
         scanf("%d", &x);
     }
     return L;
@@ -33,16 +32,16 @@ LinkList CreateList2(LinkList &L)
     //从表头到表尾正向建立单链表，每次均在表尾插入元素
     int x;
     L = (LinkList)malloc(sizeof(LNode));
+    L->next = NULL;
     LNode *s, *r = L;
     scanf("%d", &x);
     while (x != 9999)
     {
         
-        //s = (LNode *)malloc(sizeof(LNode));
+        s = (LNode *)malloc(sizeof(LNode));
         s->data = x;
         r->next = s;
         r = s;
-        L->data++;
         scanf("%d", &x);
     }
     s->next = NULL;
@@ -135,4 +134,17 @@ void DeleteElem(LinkList &L, LNode *s)//通过节点来删除
         p->next = q->next;
         free(q);
     }
+}
+
+int Length(LinkList &L)
+{
+    //长度
+    int len = 0;
+    LNode *p = L->next;
+    while (p != NULL)
+    {
+        len++;
+        p = p->next;
+    }
+    return len;
 }
