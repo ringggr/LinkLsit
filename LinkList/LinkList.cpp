@@ -101,7 +101,7 @@ void InsertNextElem(LinkList &L, int e, int i)
     s->data = e;
     p->next = s;
 }
-void InsertPreElem2(LinkList &L, int e, int i)
+void InsertPrevElem(LinkList &L, int e, int i)
 {
     //前插
     LNode *p = GetElem(L, i), *s;
@@ -147,4 +147,85 @@ int Length(LinkList &L)
         p = p->next;
     }
     return len;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//双向链表
+DLinklist CreateDList(DLinklist &L)
+{
+    L = (DLinklist)malloc(sizeof(DNode));
+    L->next = NULL;
+    L->prior = NULL;
+    DNode *s, *r = L;
+    int x;
+    scanf("%d", &x);
+    while (x != 9999)
+    {
+        s = (DNode *)malloc(sizeof(DNode));
+        s->data = x;
+        s->prior = r;
+        r->next = s;
+        r = s;
+        scanf("%d", &x);
+    }
+    r->next = NULL;
+    return L;
+}
+void Output(DLinklist &L)
+{
+    DNode *p = L->next;
+    while (p != NULL) {
+        printf("%d ", p->data);
+        p = p->next;
+    }
+    putchar(10);
+}
+DNode *GetElem(DLinklist &L, int i)
+{
+    DNode *p = L->next;
+    int j = 1;
+    if (i == 0)
+    {
+        return L;
+    }
+    if (1 < 0 )
+    {
+        return NULL;
+    }
+    while (p && j < i) {
+        p = p->next;
+        j++;
+    }
+    return p;
+}
+DNode *LocateElem(DLinklist &L, int e)
+{
+    DNode *p = L->next;
+    while (p != NULL && p->data != e)
+    {
+        p = p->next;
+    }
+    return p;
+}
+void InsertNextElem(DLinklist &L, int e, int i)
+{
+    DNode *p = GetElem(L, i - 1), *s;
+    s = (DNode *)malloc(sizeof(DNode));
+    s->data = e;
+    s->next = p->next;
+    p->next->prior = s;
+    p->next = s;
+    s->prior = p;
+}
+
+void DeleteElem(DLinklist &L, int i)
+{
+    DNode *p = GetElem(L, i - 1);
+    DNode *q = p->next;
+    p->next = q->next;
+    q->next->prior = p;
+    free(q);
 }

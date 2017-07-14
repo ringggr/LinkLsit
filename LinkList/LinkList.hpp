@@ -44,9 +44,7 @@ int Length(LinkList &L);//长度
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
+//双向链表
 typedef struct DNode
 {
     int data;
@@ -57,10 +55,8 @@ DLinklist CreateDList(DLinklist &L);
 void Output(DLinklist &L);
 DNode *GetElem(DLinklist &L, int i);
 DNode *LocateElem(DLinklist &L, int e);
-//void InsertNextElem(DLinklist &L, int e, int i);
-//void InsertPrevElem(DLinklist &L, int e, int i);
-//void DeleteElem(DLinklist &L, int i);
-
+void InsertNextElem(DLinklist &L, int e, int i);
+void DeleteElem(DLinklist &L, int i);
 
 
 
